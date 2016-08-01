@@ -1,0 +1,16 @@
+{
+  "name": "TestTravis",
+  "description": "Test Travise with Mocha",
+  "version": "0.0.1",
+  "engines": {
+    "node": "~0.6.11"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "1.6.0"
+  },
+  "optionalDependencies": {},
+  "scripts": {
+    "test": "make test-all"
+  }
+}
