@@ -8,7 +8,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "*",
-    "mocha": "^3.0.1"
+    "mocha": "*"
   },
   "optionalDependencies": {},
   "scripts": {
