@@ -7,13 +7,7 @@
  * @coder       Alexander Oganov <t_tapak@yahoo.com>
  */
 
-if (typeof window !== 'undefined') {
-    var Converter = window.Converter || {};
-} else {
-    GLOBAL.Converter = {};
-
-    var Converter = GLOBAL.Converter;
-}
+var Converter = window.Converter || {};
 
 (function (Converter) {
     "use strict";
