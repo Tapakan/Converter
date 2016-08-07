@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Fri May 08 2015 21:55:21 GMT-0400 (Eastern Daylight Time)
 
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -15,18 +15,23 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'src/*.js' , 'tests/*.js'
+            'src/*.js', 'tests/*.js'
         ],
 
 
         // list of files to exclude
-        exclude: [
-        ],
+        exclude: [],
 
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
+            "src/*.js": ["coverage"]
+        },
+
+        coverageReporter: {
+            type: "lcov",
+            dir : "coverage/"
         },
 
 
