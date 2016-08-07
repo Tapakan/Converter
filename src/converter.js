@@ -7,9 +7,15 @@
  * @coder       Alexander Oganov <t_tapak@yahoo.com>
  */
 
-Converter = window.Converter || {};
+if (typeof window !== 'undefined') {
+    var Converter = window.Converter || {};
+} else {
+    GLOBAL.Converter = {};
 
-(function (Converter, document) {
+    var Converter = GLOBAL.Converter;
+}
+
+(function (Converter) {
     "use strict";
 
     /**
@@ -91,6 +97,4 @@ Converter = window.Converter || {};
 
         return newValue;
     }
-
-    Converter.init(currencies);
-})(Converter, document);
+})(Converter);

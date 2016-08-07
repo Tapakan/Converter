@@ -7,10 +7,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "mocha": "1.6.0"
+    "chai": "*",
+    "mocha": "^3.0.1"
   },
   "optionalDependencies": {},
   "scripts": {
-    "test": "make test-all"
+    "test": "node ./node_modules/mocha/bin/mocha ./tests"
   }
 }
