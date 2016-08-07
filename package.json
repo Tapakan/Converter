@@ -1,17 +1,18 @@
 {
-  "name": "TestTravis",
-  "description": "Test Travise with Mocha",
-  "version": "0.0.1",
-  "engines": {
-    "node": "~0.6.11"
+  "name"                : "TestTravis",
+  "description"         : "Test Travise with Mocha",
+  "version"             : "0.0.1",
+  "engines"             : {
+    "node": ">= 0.10.x",
+    "npm" : ">= 1.4.x"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "chai": "*",
+  "dependencies"        : {},
+  "devDependencies"     : {
+    "chai" : "*",
     "mocha": "*"
   },
   "optionalDependencies": {},
-  "scripts": {
+  "scripts"             : {
     "test": "node ./node_modules/mocha/bin/mocha ./tests"
   }
 }
