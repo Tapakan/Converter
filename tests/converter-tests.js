@@ -1,5 +1,3 @@
-var assert = require('assert');
-
 
 var currencies = {
     "UAH": {
@@ -22,27 +20,27 @@ describe("Converter", function () {
 
     describe("Get symbol", function () {
         it("Symbol of UAH is UAH", function () {
-            assert.equal(Converter.getSymbol("UAH"), "UAH");
+            expect("UAH").toBe(Converter.getSymbol("UAH"));
         });
         it("Symbol of EUR is €", function () {
-            assert.equal(Converter.getSymbol("EUR"), "€");
+            expect("€").toBe(Converter.getSymbol("EUR"));
         });
         it("Symbol of USD is $", function () {
-            assert.equal(Converter.getSymbol("USD"), "$");
+            expect("$").toBe(Converter.getSymbol("USD"));
         });
     });
 
     describe("Convert", function () {
         it("from UAH to EUR. 2 EUR = 60 UAH", function () {
-            assert.equal(Converter.value("EUR", "UAH", 2), 60);
+            expect(60).toEqual(Converter.value("EUR", "UAH", 2));
         });
 
         it("from USD to EUR. 2 EUR = 3 USD", function () {
-            assert.equal(Converter.value("EUR", "USD", 2), 3);
+            expect(3).toEqual(Converter.value("EUR", "USD", 2));
         });
 
         it("from EUR to EUR. 2 EUR = 2 EUR", function () {
-            assert.equal(Converter.value("EUR", "EUR", 2), 2);
+            expect(2).toEqual(Converter.value("EUR", "EUR", 2));
         });
     });
 });
