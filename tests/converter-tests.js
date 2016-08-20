@@ -47,6 +47,14 @@
         expect(2).toEqual(Converter.value("EUR", "EUR", 2));
       });
     });
+
+    describe("Convert", function () {
+      it("rate of UAH is 30", function () {
+        expect(30).toEqual(Converter.getRate("UAH"));
+      });
+
+    });
+
   });
 
 }).call(this);
