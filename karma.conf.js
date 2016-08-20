@@ -1,30 +1,49 @@
-// Karma configuration
-// Generated on Fri May 08 2015 21:55:21 GMT-0400 (Eastern Daylight Time)
+/**
+ * Karma configuration
+ */
 
 module.exports = function (config) {
     config.set({
 
-        // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+        /* Base path, that will be used to resolve files and exclude */
+        basePath: "",
 
+        /* Frameworks to use */
+        frameworks: ["jasmine"],
 
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
-
-
-        // list of files / patterns to load in the browser
+        /* List of files / patterns to load in the browser */
         files: [
-            'src/*.js', 'tests/*.js'
+            "src/*.js",
+            "tests/*.js"
         ],
 
-
-        // list of files to exclude
+        // List of files to exclude
         exclude: [],
 
+        // Possible values: "dots", "progress", "junit", "growl", "coverage"
+        reporters: ["dots", "coverage", "coveralls"],
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+        // Web server port
+        port: 9876,
+
+        // Enable / disable colors in the output (reporters and logs)
+        colors: true,
+
+        // Level of logging
+        // Possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
+        logLevel: config.LOG_INFO,
+
+        // Start these browsers, currently available:
+        browsers: ["PhantomJS"],
+
+        // If browser does not capture in given timeout [ms], kill it
+        captureTimeout: 20000,
+
+        // Continuous Integration mode
+        // if true, it capture browsers, run tests and exit
+        singleRun: false,
+
+        // Source files, that you wanna generate coverage for do not include tests or libraries
         preprocessors: {
             "src/*.js": ["coverage"]
         },
@@ -32,39 +51,7 @@ module.exports = function (config) {
         coverageReporter: {
             type: "lcov",
             dir : "coverage/"
-        },
+        }
 
-
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ["dots", "coverage", "coveralls"],
-
-
-        // web server port
-        port: 9876,
-
-
-        // enable / disable colors in the output (reporters and logs)
-        colors: true,
-
-
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
-
-
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: false,
-
-
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Firefox'],
-
-
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false
     });
 };
