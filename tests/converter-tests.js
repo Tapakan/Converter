@@ -20,6 +20,14 @@
 
     describe("Converter", function () {
 
+        describe("Init", function () {
+            it("Empty settings", function () {
+                expect(function () {
+                    Converter.init({});
+                }).toThrow();
+            });
+        });
+
         describe("Get symbol", function () {
             it("Symbol of UAH is UAH", function () {
                 expect("UAH").toBe(Converter.getSymbol("UAH"));
@@ -31,8 +39,8 @@
                 expect("$").toBe(Converter.getSymbol("USD"));
             });
 
-            it("Not found currency. Expected Error", function() {
-                expect(function() {
+            it("Not found currency. Expected Error", function () {
+                expect(function () {
                     Converter.getSymbol("BYR");
                 }).toThrow();
             });
@@ -51,8 +59,8 @@
                 expect(2).toEqual(Converter.value("EUR", "EUR", 2));
             });
 
-            it("Not found currency. Expected Error", function() {
-                expect(function() {
+            it("Not found currency. Expected Error", function () {
+                expect(function () {
                     Converter.value("BYR", "EUR", 40);
                 }).toThrow();
             });
@@ -63,8 +71,8 @@
                 expect(30).toEqual(Converter.getRate("UAH"));
             });
 
-            it("Not found currency. Expected Error", function() {
-                expect(function() {
+            it("Not found currency. Expected Error", function () {
+                expect(function () {
                     Converter.getRate("BYR");
                 }).toThrow();
             });

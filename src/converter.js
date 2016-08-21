@@ -27,8 +27,8 @@
          * @param settings
          */
         init: function (settings) {
-            if (typeof settings != 'object') {
-                throw new Error('Settings must be an instance of object.');
+            if (typeof settings !== 'object' || Object.keys(settings).length === 0) {
+                throw new Error('Invalid settings.');
             }
 
             this.settings = settings;
