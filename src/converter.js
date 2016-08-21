@@ -1,4 +1,5 @@
 /**
+ * Converter.
  *
  * @package     Converter
  * @version     1.0
@@ -7,91 +8,107 @@
  * @coder       Alexander Oganov <t_tapak@yahoo.com>
  */
 
-var Converter = function() {};
+/**
+ * Converter lib.
+ */
+(function (window, document) {
 
-(function (Converter) {
-  "use strict";
+    "use strict";
 
-  /**
-   * Init with currencies params.
-   * @param settings
-   */
-  Converter.prototype.init = function (settings) {
-    if (typeof settings != 'object') {
-      throw new Error('Settings must be an instance of object.');
-    }
+    var Converter = function () {
+    };
 
-    this.settings = settings;
-  };
+    Converter.prototype = {
 
-  /**
-   * Returns symbol for currency.
-   * @param currency
-   * @returns {string|string|string|*}
-   */
-  Converter.prototype.getSymbol = function (currency) {
-    if (!this._checkCurrency(currency)) {
-      throw new Error("Currency " + currency + " does\'t exists.");
-    }
+        /**
+         * Init with currencies params.
+         *
+         *
+         * @param settings
+         */
+        init: function (settings) {
+            if (typeof settings != 'object') {
+                throw new Error('Settings must be an instance of object.');
+            }
 
-    return this.settings[currency].symbol;
-  };
+            this.settings = settings;
+        },
 
-  /**
-   * Returns rate for currency.
-   * @param currency
-   * @returns {number}
-   */
-  Converter.prototype.getRate = function (currency) {
-    if (!this._checkCurrency(currency)) {
-      throw new Error("Currency " + currency + " does\'t exists.");
-    }
+        /**
+         * Returns symbol for currency.
+         *
+         * @param currency
+         * @returns {string|string|string|*}
+         */
+        getSymbol: function (currency) {
+            if (!this._checkCurrency(currency)) {
+                throw new Error("Currency " + currency + " does\'t exists.");
+            }
 
-    return this.settings[currency].rate;
-  };
+            return this.settings[currency].symbol;
+        },
 
-  /**
-   * Convert value from currency to currency.
-   * Before converting check currency.
-   * @param {string} from
-   * @param {string} to
-   * @param {float|int} value
-   */
-  Converter.prototype.value = function (from, to, value) {
-    if (!this._checkCurrency(from) || !this._checkCurrency(to)) {
-      throw new Error("Invalid currency.");
-    }
+        /**
+         * Returns rate for currency.
+         *
+         * @param currency
+         * @returns {number}
+         */
+        getRate: function (currency) {
+            if (!this._checkCurrency(currency)) {
+                throw new Error("Currency " + currency + " does\'t exists.");
+            }
 
-    return this._convert(from, to, value);
-  };
+            return this.settings[currency].rate;
+        },
 
-  /**
-   * Check currency for existing.
-   * @param {string} currency
-   * @returns {boolean}
-   * @private
-   */
-  Converter.prototype._checkCurrency = function(currency) {
-    return this.settings.hasOwnProperty(currency);
-  };
+        /**
+         * Convert value from currency to currency.
+         * Before converting check currency.
+         *
+         * @param {string} from
+         * @param {string} to
+         * @param {float|int} value
+         */
+        value: function (from, to, value) {
+            if (!this._checkCurrency(from) || !this._checkCurrency(to)) {
+                throw new Error("Invalid currency.");
+            }
 
-  /**
-   * Converting value from one currency to other currency.
-   * @param {string} from
-   * @param {string} to
-   * @param {float|int} value
-   * @private
-   */
-  Converter.prototype._convert = function(from, to, value) {
-    var newValue = value;
-    if (from != to) {
-      newValue = value / this.settings[from].rate;
-      newValue = newValue * this.settings[to].rate;
-    }
+            return this._convert(from, to, value);
+        },
 
-    return newValue;
-  }
+        /**
+         * Check currency for existing.
+         *
+         * @param {string} currency
+         * @returns {boolean}
+         * @private
+         */
+        _checkCurrency: function (currency) {
+            return this.settings.hasOwnProperty(currency);
+        },
 
-})(Converter);
+        /**
+         * Converting value from one currency to other currency.
+         *
+         * @param {string} from
+         * @param {string} to
+         * @param {float|int} value
+         * @private
+         */
+        _convert: function (from, to, value) {
+            var newValue = value;
+            if (from != to) {
+                newValue = value / this.settings[from].rate;
+                newValue = newValue * this.settings[to].rate;
+            }
 
-window.Converter = new Converter();
+            return newValue;
+        }
+
+    };
+
+    window.Converter = new Converter();
+
+})(window, document);
