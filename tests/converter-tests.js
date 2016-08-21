@@ -48,7 +48,7 @@
       });
     });
 
-    describe("Convert", function () {
+    describe("getRate", function () {
       it("rate of UAH is 30", function () {
         expect(30).toEqual(Converter.getRate("UAH"));
       });
