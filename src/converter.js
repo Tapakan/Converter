@@ -37,7 +37,7 @@
          * Returns symbol for currency.
          *
          * @param currency
-         * @returns {string|string|string|*}
+         * @returns {string}
          */
         getSymbol: function (currency) {
             if (!this._checkCurrency(currency)) {
