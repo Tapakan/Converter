@@ -11,12 +11,11 @@
 /**
  * Converter lib.
  */
-(function (window, document) {
+(function (window) {
 
     "use strict";
 
-    var Converter = function () {
-    };
+    var Converter = function () {};
 
     Converter.prototype = {
 
@@ -27,8 +26,8 @@
          * @param settings
          */
         init: function (settings) {
-            if (typeof settings !== 'object' || Object.keys(settings).length === 0) {
-                throw new Error('Invalid settings.');
+            if (typeof settings !== "object" || Object.keys(settings).length === 0) {
+                throw new Error("Invalid settings.");
             }
 
             this.settings = settings;
@@ -99,16 +98,15 @@
          */
         _convert: function (from, to, value) {
             var newValue = value;
-            if (from != to) {
+            if (from !== to) {
                 newValue = value / this.settings[from].rate;
                 newValue = newValue * this.settings[to].rate;
             }
 
             return newValue;
         }
-
     };
 
     window.Converter = new Converter();
 
-})(window, document);
+})(window);
